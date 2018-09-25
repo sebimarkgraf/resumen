@@ -40,7 +40,13 @@
         \section{Asymmetrische Verschlüsselung}
         \subsection{RSA}
         \subsection{ElGamal}
-
+        \textbf{Schlüsselerzeugung}
+        \[\mathit{pk} = (\mathbb{G},g,h)\]
+        \[\mathit{sk} = (\mathbb{G},g,x)\]
+        \textbf{Ver- und Entschlüsselung}
+        \[\textsc{Enc}(\mathit{pk}, M) = (g^y, h^yM)\]
+        \[\textsc{Dec}(\mathit{sk}, g^y, C) = \frac{C}{(g^y)^x}\]
+        
         \section{Hashverfahren}
         \subsection{HMAC}
         kurz für \textbf{Keyed-Hash Message Authentication Code} \\
