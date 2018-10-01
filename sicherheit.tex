@@ -42,6 +42,9 @@
 
         \section{Asymmetrische Verschlüsselung}
         \subsection{RSA}
+        \textbf{Standardangreifer}\\
+        Signatur (EUF-CMA):\\
+        Wähle \(\sigma\) und setze \(m = \sigma^e\)
         \subsection{ElGamal}
         \textbf{Schlüsselerzeugung}
         \[\mathit{pk} = (\mathbb{G},g,h)\]
@@ -57,7 +60,7 @@
         Berechne:
         \begin{align*}
           a &\coloneqq g^e \in \mathbb{G} \\
-          b &\coloneqq (M - a \cdot x) \cdot e^{-1} \mod |\mathbb{G}|\\
+          b &\coloneqq (M - a \cdot x) \cdot e^{-1} \mod |\mathbb{G}| \Leftrightarrow m = ax + eb\\
           \textsc{Sig}(sk, M) &\coloneqq (a,b)
         \end{align*}
         Verifizieren der Signatur
@@ -66,7 +69,15 @@
           v_2 &= g^M\\
           \textsc{Ver}(pk,\sigma, M) &= 1 \Leftrightarrow v_1 = v_2
         \end{align*}
-        
+        \textbf{Standardangreifer}\\
+        Signatur (EUF-CMA):\\
+        \begin{enumerate}
+        \item Nullsignatur: Wähle \((g^x, -g^x)\) als Signatur für \(m=0\)
+          \item Unsinssnachricht: Berechne \(a \coloneqq g^zg^x\) dann \((a, -a)\) Signatur für \(m=-az\)
+        \end{enumerate}
+
+        \subsection{DES}
+        \textbf{Meet-In-The-Middle-Attack}
         
         \section{Hashverfahren}
         \subsection{HMAC}
