@@ -43,7 +43,7 @@
         \section{Asymmetrische Verschlüsselung}
         \subsection{RSA}
         \textbf{Standardangreifer}\\
-        Signatur (EUF-CMA):\\
+        \textit{Signatur (EUF-CMA)}:\\
         Wähle \(\sigma\) und setze \(m = \sigma^e\)
         \subsection{ElGamal}
         \textbf{Schlüsselerzeugung}
@@ -70,20 +70,38 @@
           \textsc{Ver}(pk,\sigma, M) &= 1 \Leftrightarrow v_1 = v_2
         \end{align*}
         \textbf{Standardangreifer}\\
-        Signatur (EUF-CMA):\\
+        \textit{Verschlüsselung}:\\
+        Bekanntes \(C \coloneqq (9,1)\) gegeben.\\
+        Berechne \(C* \neq C\) aber \(M* = M\).
+        \begin{enumerate}
+        \item Wähle zufälligegs \(z \in \mathbb{Z}_{11}\), z.B. \(y=1\)
+        \item Berechne \(C'\) von 1: \(C' = (g^y, g^xy \cdot M) = (3^y, 9^y \cdot M)\)
+        \item Multipliziere die Chiffrate: \(C* = C \cdot C' = (5,9)\) von \(1 \cdot M\)
+        \end{enumerate}
+        \textit{Signatur (EUF-CMA)}:
         \begin{enumerate}
         \item Nullsignatur: Wähle \((g^x, -g^x)\) als Signatur für \(m=0\)
           \item Unsinssnachricht: Berechne \(a \coloneqq g^zg^x\) dann \((a, -a)\) Signatur für \(m=-az\)
         \end{enumerate}
 
         \subsection{DES}
-        \textbf{Meet-In-The-Middle-Attack}
-        
+        \textbf{Meet-In-The-Middle}
+        % TODO Meet-In-The-Middle allgemein aufschreiben. Wird in 2013(2) und 2014(1) abgefragt 
         \section{Hashverfahren}
         \subsection{HMAC}
         kurz für \textbf{Keyed-Hash Message Authentication Code} \\
         \[\mathit{HMAC}_{K}(M) = H((K \oplus \mathit{opad}) || H((K \oplus \mathit{ipad}) || M))\]
 
+        \section{Zero-Knowledge}
+        \subsection{Commitments}
+        \textbf{Eigenschaften}
+        \begin{itemize}
+        \item \textit{hiding} - \(\textsc{Com}(M; R)\) verrät zunächst keinerlei Informationen über M
+        \item \textit{binding} - \(\textsc{Com}(M; R)\) legt den Ersteller des Commitment auf \(M\) fest, d.h.
+          der Ersteller der Nachricht kann später nicht glaubhaft behaupten, dass \(M' \neq M\) zur Erstellung
+          Commitment
+        \end{itemize}
+        
         \section{Rechentricks}
         \subsection{Modulo}
         \textbf{Handhabbare Repäsentanten}
