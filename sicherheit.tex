@@ -110,11 +110,16 @@
           Commitment
         \end{itemize}
         
-        \section{Rechentricks}
-        \subsection{Modulo}
+        \section{Sonstiges}
+        \subsection{Modulo Rechentricks}
         \textbf{Handhabbare Repäsentanten}
         \[51^2 \bmod 59 = (59-8)^2 \bmod 59 = (-8)^2 \bmod 59 = 64 \bmod 59 = 5 \bmod 59\]
         \textbf{Reduzierung des Exponenten modulo der Gruppenordnung}
         \[3^{60} \bmod 59 = 3^{60 \bmod 58} \bmod 59 = 3^2 \bmod 59\]
-        Allgemein: Ordnung ist \(\varphi(N)\)
+        Allgemein: Ordnung ist \(\varphi(N)\)a
+        \subsection{Klausur 2018 Aufgabe 1b}
+        Geben Sie eine Formel für \(x\) an, sodass gegeben \(P, Q, a, b\) gilt:\\
+        \(a = x \bmod P\) und \(b = x \bmod Q\)\\
+        Lösung:\\
+        \(x = ( a \cdot Q  \cdot (Q^{-1} \bmod P) + b \cdot P \cdot (P^{-1} \bmod Q)) \mod N\)
 \end{document}
