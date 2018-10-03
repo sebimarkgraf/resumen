@@ -31,6 +31,10 @@
         \subsection{Kerckhoffs' Prinzip}
         Die Sicherheit eines Verfahrens beruht auf der \textbf{Geheimhaltung des Schlüssels}
         anstatt auf der \textbf{Geheimhaltung des Verschlüsselsungsverfahrens}.
+
+        \subsection{EUF-CMA}
+
+        \subsection{IND-CPA}
         
 	\section{Symmetrische Verschlüsselung}
         \subsection{Betriebsmodi}
@@ -96,11 +100,20 @@
         \textbf{Meet-In-The-Middle}
         % TODO Meet-In-The-Middle allgemein aufschreiben. Wird in 2013(2) und 2014(1) abgefragt 
         \section{Hashverfahren}
+        \subsection{Kollisionsresistenz}
+        \(H_k\) ist kollisionsresistent, wenn jeder PPT-Algorithmus mit höchstens vernachlässigbarer Wahrscheinlichkeit
+        eine Kollision, also zwei verschiedene Nachrichten \(M \neq M'\) für die \(H(M) = H(M')\) gilt, findet.\\
+        oder\\
+        \(H_k\) ist kollisionsresistent, wenn für alle PPT-Algorithmen \(\mathcal{A}\) gilt:
+        \[\Pr\Big[(M, M') \leftarrow \mathcal{A}(1^k) \Big| M \neq M' \and H_k(M) = H_k(M')\Big]\]
+        ist vernachlässigbar (in k).
         \subsection{HMAC}
         kurz für \textbf{Keyed-Hash Message Authentication Code} \\
         \[\mathit{HMAC}_{K}(M) = H((K \oplus \mathit{opad}) || H((K \oplus \mathit{ipad}) || M))\]
 
         \section{Zero-Knowledge}
+        \subsection{Definition}
+        
         \subsection{Commitments}
         \textbf{Eigenschaften}
         \begin{itemize}
