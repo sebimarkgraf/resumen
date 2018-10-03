@@ -42,6 +42,14 @@
 
         \section{Asymmetrische Verschlüsselung}
         \subsection{RSA}
+        \textbf{Schlüsselgenerierung}
+        \begin{itemize}
+          \item Wähle Primzahlen \(P \neq q\) zufällig
+          \item berechne \(N = P \cdot Q, \varphi(N) = (P-1)(Q-1)\)
+          \item wähle \(e\) zufällig aus \(\{3,...,\varphi(N)-1\}\), sodass \(\gcd(e, \varphi(N)) = 1\)
+          \item berechne \(d \coloneqq e^{-1} \bmod \varphi(N)\)
+          \item gib \(\mathit{pk} \coloneqq (N, e)\) und \(\mathit{sk} \coloneqq (N, d)\) aus
+        \end{itemize}
         \textbf{Standardangreifer}\\
         \textit{Signatur (EUF-CMA)}:\\
         Wähle \(\sigma\) und setze \(m = \sigma^e\)
