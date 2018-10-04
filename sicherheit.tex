@@ -115,10 +115,21 @@
         \item Mehrfachanwendung (z.B. 1000 Mal)
         \item Suche kleinste Zahl i, sodass die ersten z.B. 20 Bits von \(H(m,i)\) gleich 0 sind.
         \end{itemize}
+        \subsection{Birthday-Angriff}
+        Wahrscheinlichkeit für Kollision steigt mit Quadrat.
+        Vorgehen:
+        \begin{itemize}
+        \item Wähle \(2^{\frac{k}{2}})\) zufällige Urbilder und berechne Hashwert
+        \item Sortiere nach Hashwert
+        \item Suche nach identischen Hashwerten
+        \end{itemize}
+        Laufzeit: \(O(k \cdot 2^{\frac{k}{2}})\) (Grund für k: Sortieren)\\
+        Speicherbedarf: \(O(k \cdot 2^{\frac{k}{2}})\)
         \subsection{HMAC}
         kurz für \textbf{Keyed-Hash Message Authentication Code} \\
         \[\mathit{HMAC}_{K}(M) = H((K \oplus \mathit{opad}) || H((K \oplus \mathit{ipad}) || M))\]
 
+        
         \section{Zero-Knowledge}
         \subsection{Definition}
         \textbf{Ununterscheidbarkeit}\\
