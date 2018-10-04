@@ -13,13 +13,6 @@
 \usepackage{mathrsfs}
 \usepackage[colorlinks, linkcolor = black, citecolor = black, filecolor = black, urlcolor = blue]{hyperref} 
 
-\def\realnumbers{{\rm I\!R}}
-\def\polynomials{{\rm I\!P}}
-
-\newcommand{\rom}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
-\newcommand{\norm}[1]{\lVert#1\rVert}
-\renewcommand{\arraystretch}{1.5}
-
 \begin{document}
 	\pagenumbering{Roman}
 	{\let\newpage\relax\maketitle}
@@ -34,10 +27,15 @@
         anstatt auf der \textbf{Geheimhaltung des Verschlüsselsungsverfahrens}.
 
         \subsection{EUF-CMA}
-        Verfahren ist EUF-CMA sicher, wenn für alle PPT Angreifer \(\mathcal{A}\) die Wahrscheinlichkeit,
-         dass \(\mathcal{A}\) im EUF-CMA Spiel gewinnt, vernachlässigbar (im Sicherheitsparameter) ist.
+        Ein Verfahren ist EUF-CMA sicher, wenn für alle PPT-Angreifer \(\mathcal{A}\) die Wahrscheinlichkeit,
+        dass \(\mathcal{A}\) im EUF-CMA Spiel gewinnt, vernachlässigbar (im Sicherheitsparameter) ist.
 
         \subsection{IND-CPA}
+        Ein symmetrisches Verfahren \((\mathbf{Enc}, \mathbf{Dec})\) heißt \textbf{IND-CPA-sicher}, wenn der Vorteil des
+        PPT-Algorithmus \(\mathcal{A}\) gegenüber dem Raten einer Lösung, also
+        \(\Pr\left[\mathcal{A}\ \text{gewinnt}\right] - \frac{1}{2}\), für alle
+        PPT-Algorithmen \(\mathcal{A}\) vernachlässigbar im Sicherheitsparameter \textit{k} ist.
+        \newpage
         
 	\section{Symmetrische Verschlüsselung}
         \subsection{Betriebsmodi}
@@ -46,7 +44,8 @@
         \item CBC - Cipher Block Chaining Mode - Verknüpfe mit Chiffrat des vorherigen
         \item CTR - Counter Mode - Verschlüssele IV + i und addiere XOR zur Nachricht
         \end{itemize}
-
+        \newpage
+        
         \section{Asymmetrische Verschlüsselung}
         \subsection{RSA}
         \textbf{Schlüsselgenerierung}
@@ -102,6 +101,8 @@
         \subsection{DES}
         \textbf{Meet-In-The-Middle}
         % TODO Meet-In-The-Middle allgemein aufschreiben. Wird in 2013(2) und 2014(1) abgefragt 
+        \newpage
+
         \section{Hashverfahren}
         \subsection{Kollisionsresistenz}
         \(H_k\) ist kollisionsresistent, wenn jeder PPT-Algorithmus mit höchstens vernachlässigbarer Wahrscheinlichkeit
@@ -128,8 +129,8 @@
         \subsection{HMAC}
         kurz für \textbf{Keyed-Hash Message Authentication Code} \\
         \[\mathit{HMAC}_{K}(M) = H((K \oplus \mathit{opad}) || H((K \oplus \mathit{ipad}) || M))\]
+        \newpage
 
-        
         \section{Zero-Knowledge}
         \subsection{Definition}
         \textbf{Ununterscheidbarkeit}\\
@@ -154,7 +155,8 @@
           der Ersteller der Nachricht kann später nicht glaubhaft behaupten, dass \(M' \neq M\) zur Erstellung
           Commitment
         \end{itemize}
-        
+        \newpage
+
         \section{Sonstiges}
         \subsection{Modulo Rechentricks}
         \textbf{Handhabbare Repäsentanten}
