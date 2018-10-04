@@ -11,6 +11,7 @@
 \usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
 \usepackage[a4paper, total={6in, 8in}]{geometry}
 \usepackage{mathrsfs}
+\usepackage[colorlinks, linkcolor = black, citecolor = black, filecolor = black, urlcolor = blue]{hyperref} 
 
 \def\realnumbers{{\rm I\!R}}
 \def\polynomials{{\rm I\!P}}
@@ -33,6 +34,8 @@
         anstatt auf der \textbf{Geheimhaltung des Verschlüsselsungsverfahrens}.
 
         \subsection{EUF-CMA}
+        Verfahren ist EUF-CMA sicher, wenn für alle PPT Angreifer \(\mathcal{A}\) die Wahrscheinlichkeit,
+         dass \(\mathcal{A}\) im EUF-CMA Spiel gewinnt, vernachlässigbar (im Sicherheitsparameter) ist.
 
         \subsection{IND-CPA}
         
@@ -107,6 +110,11 @@
         \(H_k\) ist kollisionsresistent, wenn für alle PPT-Algorithmen \(\mathcal{A}\) gilt:
         \[\Pr\Big[(M, M') \leftarrow \mathcal{A}(1^k) \Big| M \neq M' \and H_k(M) = H_k(M')\Big]\]
         ist vernachlässigbar (in k).
+        \subsection{Key-Strenghtening}
+        \begin{itemize}
+        \item Mehrfachanwendung (z.B. 1000 Mal)
+        \item Suche kleinste Zahl i, sodass die ersten z.B. 20 Bits von \(H(m,i)\) gleich 0 sind.
+        \end{itemize}
         \subsection{HMAC}
         kurz für \textbf{Keyed-Hash Message Authentication Code} \\
         \[\mathit{HMAC}_{K}(M) = H((K \oplus \mathit{opad}) || H((K \oplus \mathit{ipad}) || M))\]
@@ -142,10 +150,13 @@
         \[51^2 \bmod 59 = (59-8)^2 \bmod 59 = (-8)^2 \bmod 59 = 64 \bmod 59 = 5 \bmod 59\]
         \textbf{Reduzierung des Exponenten modulo der Gruppenordnung}
         \[3^{60} \bmod 59 = 3^{60 \bmod 58} \bmod 59 = 3^2 \bmod 59\]
-        Allgemein: Ordnung ist \(\varphi(N)\)a
+        Allgemein: Ordnung ist \(\varphi(N)\)
         \subsection{Klausur 2018 Aufgabe 1b}
         Geben Sie eine Formel für \(x\) an, sodass gegeben \(P, Q, a, b\) gilt:\\
         \(a = x \bmod P\) und \(b = x \bmod Q\)\\
         Lösung:\\
-        \(x = ( a \cdot Q  \cdot (Q^{-1} \bmod P) + b \cdot P \cdot (P^{-1} \bmod Q)) \mod N\)
+        \(x = ( a \cdot Q  \cdot (Q^{-1} \bmod P) + b \cdot P \cdot (P^{-1} \bmod Q)) \mod N\)\\
+        Für die Herleitung sollte der Wikpedia Artikel zum
+        \href{https://de.wikipedia.org/wiki/Chinesischer_Restsatz}{Chinesischen Restsatz}
+        zu Rate gezogen werden.
 \end{document}
